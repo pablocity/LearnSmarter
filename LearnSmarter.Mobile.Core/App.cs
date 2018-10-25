@@ -8,7 +8,17 @@ namespace LearnSmarter.Mobile.Core
     {
         public override void Initialize()
         {
-            RegisterAppStart<HomeViewModel>();
+            RegisterTypes();
+
+            RegisterAppStart<RootMenuViewModel>();
+        }
+
+        private void RegisterTypes()
+        {
+            CreatableTypes()
+                .EndingWith("Service")
+                .AsInterfaces()
+                .RegisterAsLazySingleton();
         }
     }
 }

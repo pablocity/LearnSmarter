@@ -3,7 +3,7 @@ using MvvmCross.ViewModels;
 
 namespace LearnSmarter.Mobile.Core.ViewModels
 {
-    public class HomeViewModel : MvxViewModel
+    public class HomeViewModel : BaseViewModel
     {
         public IMvxCommand ResetTextCommand => new MvxCommand(ResetText);
         private void ResetText()
