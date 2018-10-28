@@ -24,7 +24,7 @@ namespace LearnSmarter.Mobile.Core.ViewModels
         private async Task InitializeViewModels()
         {
             await NavigationService.Navigate<MenuViewModel>();
-            await NavigationService.Navigate<HomeViewModel>();
+            await NavigationService.Navigate<PlannerViewModel>();
         }
 
     }

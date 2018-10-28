@@ -5,10 +5,17 @@
              Title="MenuView"         
              x:Class="LearnSmarter.Mobile.Forms.UI.Views.MenuView">
     <views:MvxContentPage.Content>
-        <ScrollView>
-            <views:MvxListView BackgroundColor="Crimson" ItemsSource="{Binding MenuItems}">
-                
+        
+        <StackLayout>
+
+            <StackLayout MinimumHeightRequest="25" BackgroundColor="Crimson" Orientation="Horizontal" Padding="10">
+                <Label Text="Learn Smarter than you used to!" Margin="10" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            
+            
+            <views:MvxListView BackgroundColor="CornflowerBlue" ItemsSource="{Binding MenuItems}">
             </views:MvxListView>
-        </ScrollView>
+        </StackLayout>
+        
     </views:MvxContentPage.Content>
 </views:MvxContentPage>
