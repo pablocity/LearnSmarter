@@ -5,7 +5,7 @@
              x:Class="LearnSmarter.Mobile.Forms.UI.Views.PlannerView">
     <views:MvxContentPage.Content>
         <StackLayout BackgroundColor="CornflowerBlue">
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="Welcome to Planner View!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

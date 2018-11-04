@@ -22,5 +22,21 @@ namespace LearnSmarter.Mobile.Forms.UI.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        protected override void OnViewModelSet()
+        {
+            base.OnViewModelSet();
+            MenuViewModel viewModel = ViewModel as MenuViewModel;
+            viewModel.PropertyChanged += (sender, e) =>
+            {
+                if (e.PropertyName == nameof(viewModel.SelectedItem))
+                {
+                    if (Parent is MasterDetailPage master)
+                    {
+                        master.IsPresented = !master.IsPresented;
+                    }
+                }
+            };
+        }
+    }
 }

@@ -9,11 +9,21 @@
         <StackLayout>
 
             <StackLayout MinimumHeightRequest="25" BackgroundColor="Crimson" Orientation="Horizontal" Padding="10">
-                <Label Text="Learn Smarter than you used to!" Margin="10" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Learn Smarter than you used to!" FontFamily="Courier New" Margin="10" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
             </StackLayout>
             
             
-            <views:MvxListView BackgroundColor="CornflowerBlue" ItemsSource="{Binding MenuItems}">
+            <views:MvxListView ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedItem}">
+                <views:MvxListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image WidthRequest="24" HeightRequest="24" Margin="17, 3, 7, 3" Source="{Binding ImagePath}"></Image>
+                                <Label VerticalTextAlignment="Center" VerticalOptions="Center" FontFamily="Courier New" Text="{Binding Name}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </views:MvxListView.ItemTemplate>
             </views:MvxListView>
         </StackLayout>
         
