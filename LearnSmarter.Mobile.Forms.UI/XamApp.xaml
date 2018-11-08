@@ -5,5 +5,9 @@
     x:Class="LearnSmarter.Mobile.Forms.UI.App">
     <Application.Resources>
         <!-- Application resource dictionary -->
+        
+        <!--Colors-->
+
+        <Color x:Key="MenuListColor">#FFFFFF</Color>
     </Application.Resources>
 </Application>
