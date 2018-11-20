@@ -9,5 +9,6 @@
         <!--Colors-->
 
         <Color x:Key="MenuListColor">#FFFFFF</Color>
+        <Color x:Key="MenuTabColor">#DC143C</Color>
     </Application.Resources>
 </Application>

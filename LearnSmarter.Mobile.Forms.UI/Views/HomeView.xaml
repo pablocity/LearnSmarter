@@ -2,14 +2,35 @@
 <views:MvxContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:LearnSmarter.Mobile.Forms.UI.Views"
     x:Class="LearnSmarter.Mobile.Forms.UI.Views.HomeView">
 
     <Grid>
-        <StackLayout>
-            <Entry Text="{Binding Text, Mode=TwoWay}"></Entry>
-            <Button Text="Reset" Command="{Binding ResetTextCommand}"></Button>
-        </StackLayout>
+        <sf:SfListView ItemsSource="{Binding Collection}">
+            <sf:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label  Grid.Column="0" Grid.Row="0" Text="Subject Name"></Label>
+                            <Label  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Text="Deadline 29.11.2018"></Label>
+                            <Label  Grid.Column="2" Grid.Row="1" Text="Left 16 days"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </sf:SfListView.ItemTemplate>
+        </sf:SfListView>
     </Grid>
 </views:MvxContentPage>

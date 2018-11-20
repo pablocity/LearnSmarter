@@ -1,5 +1,6 @@
 ﻿using MvvmCross.Commands;
 using MvvmCross.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace LearnSmarter.Mobile.Core.ViewModels
 {
@@ -16,6 +17,20 @@ namespace LearnSmarter.Mobile.Core.ViewModels
         {
             get { return _text; }
             set { SetProperty(ref _text, value); }
+        }
+
+        public ObservableCollection<string> Collection { get; set; }
+
+        public HomeViewModel()
+        {
+            Collection = new ObservableCollection<string>()
+            {
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+            };
         }
     }
 }

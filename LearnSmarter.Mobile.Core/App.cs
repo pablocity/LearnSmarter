@@ -8,6 +8,8 @@ namespace LearnSmarter.Mobile.Core
     {
         public override void Initialize()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDEyNDRAMzEzNjJlMzMyZTMwT001Nmk3aGljeUlxanYvakpXWks5aWYvRmM1WnJ2SmQ0ekZEZU1JUVRYWT0=");
+
             RegisterTypes();
 
             RegisterAppStart<RootMenuViewModel>();
