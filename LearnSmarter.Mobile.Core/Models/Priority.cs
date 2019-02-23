@@ -6,6 +6,9 @@ namespace LearnSmarter.Mobile.Core.Models
 {
     public enum Priority
     {
-
+        Supreme,
+        Important,
+        Average,
+        Low
     }
 }
