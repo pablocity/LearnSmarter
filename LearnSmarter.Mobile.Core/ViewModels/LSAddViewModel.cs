@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using LearnSmarter.Mobile.Common;
+using System.Collections.ObjectModel;
 
 namespace LearnSmarter.Mobile.Core.ViewModels
 {
@@ -34,11 +36,19 @@ namespace LearnSmarter.Mobile.Core.ViewModels
             set => SetProperty(ref deadline, value);
         }
 
+        private Priority priority;
+        public Priority Priority
+        {
+            get => priority;
+            set { Priority p = (Priority)value; SetProperty(ref priority, p); }
+        }
+
         //public string Name { get; private set; }
         //public string Description { get; private set; }
         //public DateTime Deadline { get; private set; }
         public Category Category { get; private set; }
-        public Priority Priority { get; private set; }
+
+        public ObservableCollection<string> Priorities { get; set; }
 
 
         public LSAddViewModel()
@@ -46,6 +56,9 @@ namespace LearnSmarter.Mobile.Core.ViewModels
             CloseView = new MvxAsyncCommand(Close);
             ApproveCommand = new MvxAsyncCommand(Add);
             Deadline = DateTime.Now;
+
+            Priority = Priority.Average;
+            Priorities = new ObservableCollection<string>(EnumHelper.GetEnumValuesDescriptionList<Priority>());
         }
 
         public async Task Close()
