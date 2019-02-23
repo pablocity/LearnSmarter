@@ -27,7 +27,7 @@ namespace LearnSmarter.Mobile.Core.Models
             Name = name;
             Description = description;
             Category = category;
-            Priority = Priority;
+            Priority = priority;
             Deadline = deadline;
         }
 
