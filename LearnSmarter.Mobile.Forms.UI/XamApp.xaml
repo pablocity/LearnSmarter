@@ -9,7 +9,7 @@
         
         <!--Converters-->
         <converters:EnumDescriptionToValueConverter x:Key="ToValue"></converters:EnumDescriptionToValueConverter>
-        
+        <converters:PriorityToColorConverter x:Key="PriorityToColor"></converters:PriorityToColorConverter>
         <!--Colors-->
 
         <Color x:Key="MenuListColor">#FFFFFF</Color>
