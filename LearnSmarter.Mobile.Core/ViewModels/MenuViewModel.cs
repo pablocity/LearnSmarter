@@ -32,7 +32,7 @@ namespace LearnSmarter.Mobile.Core.ViewModels
             {
                 new MenuItem("Twoja nauka", "knowledge.png", typeof(HomeViewModel)),
                 new MenuItem("Planer", "planning.png", typeof(PlannerViewModel)),
-                new MenuItem("Osiągnięcia", "award.png", typeof(HomeViewModel)),
+                new MenuItem("Osiągnięcia", "award.png", typeof(LSAddViewModel)),
                 new MenuItem("Ustawienia", "settings.png", typeof(HomeViewModel)),
             };
 

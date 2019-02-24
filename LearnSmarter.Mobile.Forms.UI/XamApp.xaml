@@ -2,10 +2,15 @@
 <Application
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:LearnSmarter.Mobile.Forms.UI.Converters"
     x:Class="LearnSmarter.Mobile.Forms.UI.App">
     <Application.Resources>
         <!-- Application resource dictionary -->
         
+        <!--Converters-->
+        <converters:EnumDescriptionToValueConverter x:Key="ToValue"></converters:EnumDescriptionToValueConverter>
+        <converters:PriorityToColorConverter x:Key="PriorityToColor"></converters:PriorityToColorConverter>
+        <converters:DeadlineWithTextConverter x:Key="DateToMessage"></converters:DeadlineWithTextConverter>
         <!--Colors-->
 
         <Color x:Key="MenuListColor">#FFFFFF</Color>
