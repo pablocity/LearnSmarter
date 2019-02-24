@@ -10,6 +10,7 @@
         <!--Converters-->
         <converters:EnumDescriptionToValueConverter x:Key="ToValue"></converters:EnumDescriptionToValueConverter>
         <converters:PriorityToColorConverter x:Key="PriorityToColor"></converters:PriorityToColorConverter>
+        <converters:DeadlineWithTextConverter x:Key="DateToMessage"></converters:DeadlineWithTextConverter>
         <!--Colors-->
 
         <Color x:Key="MenuListColor">#FFFFFF</Color>
