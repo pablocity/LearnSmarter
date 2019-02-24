@@ -3,12 +3,14 @@ using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace LearnSmarter.Mobile.Core.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
         public IMvxAsyncCommand AddLSCommand => new MvxAsyncCommand(AddLS);
+        public IMvxCommand SortByPriorityCommand => new MvxCommand(SortPriorities);
 
         public async Task AddLS()
         {
@@ -18,7 +20,17 @@ namespace LearnSmarter.Mobile.Core.ViewModels
                 Collection.Add(result);
         }
 
-        public ObservableCollection<LearningSubject> Collection { get; set; }
+        public void SortPriorities()
+        {
+            Collection = new ObservableCollection<LearningSubject>(Collection.OrderBy(x => x.Priority));
+        }
+
+        private ObservableCollection<LearningSubject> collection;
+        public ObservableCollection<LearningSubject> Collection
+        {
+            get => collection;
+            set => SetProperty(ref collection, value);
+        }
 
         public HomeViewModel()
         {

@@ -26,14 +26,14 @@
 
             <StackLayout BackgroundColor="#7986cb" Margin="0, 0, 0, 5" Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
                 <Label VerticalOptions="Center" HorizontalOptions="Start" Margin="15, 5, 0, 5" FontSize="17" Text="Twoje cele"></Label>
-                <Button VerticalOptions="Center" HorizontalOptions="EndAndExpand" Margin="0, 8, 8, 8" TextColor="White" Text="Sortuj" BackgroundColor="#4b6584"></Button>
+                <Button Command="{Binding SortByPriorityCommand}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Margin="0, 8, 8, 8" TextColor="White" Text="Sortuj" BackgroundColor="#4b6584"></Button>
             </StackLayout>
 
 
             <ListView Grid.Row="1" Grid.Column="1" HasUnevenRows="True" ItemsSource="{Binding Collection}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell IsEnabled="False">
+                        <ViewCell>
                             <Grid BackgroundColor="#cfcfcf" Margin="0, 0, 0, 10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="3"></RowDefinition>
