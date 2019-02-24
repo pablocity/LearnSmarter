@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+             xmlns:common="clr-namespace:LearnSmarter.Mobile.Core.Models;assembly=LearnSmarter.Mobile.Core"
+             x:Class="LearnSmarter.Mobile.Forms.UI.Views.LSAddView">
+    <views:MvxContentPage.Content>
+        <StackLayout BackgroundColor="CornflowerBlue">
+            <Grid Padding="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Padding="10" Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                    <Label Style="{x:StaticResource DefaultLabel}" Text="Name"></Label>
+                    <Entry Text="{Binding Name, Mode=TwoWay}"></Entry>
+                </StackLayout>
+
+                <StackLayout Padding="10" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                    <Label Style="{x:StaticResource DefaultLabel}" Text="Termin"></Label>
+                    <DatePicker Date="{Binding Deadline}"></DatePicker>
+                </StackLayout>
+
+                <StackLayout Padding="10" Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+                    <Label Style="{x:StaticResource DefaultLabel}" Text="Category"></Label>
+                    <Picker></Picker>
+                </StackLayout>
+
+                <StackLayout Padding="10" Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+                    <Label Style="{x:StaticResource DefaultLabel}" Text="Priority"></Label>
+                    <Picker ItemsSource="{Binding Priorities}"
+                            SelectedItem="{Binding Priority, Mode=TwoWay, Converter={x:StaticResource ToValue}, ConverterParameter={x:Static common:Priority.Average}}"></Picker>
+                </StackLayout>
+
+                <StackLayout Grid.ColumnSpan="2" Grid.Row="2" Orientation="Horizontal">
+                    <Button Command="{Binding ApproveCommand}" Text="Dodaj"></Button>
+                </StackLayout>
+                
+            </Grid>
+        </StackLayout>
+    </views:MvxContentPage.Content>
+</views:MvxContentPage>

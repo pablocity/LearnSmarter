@@ -1,15 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:MvxContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:effects="clr-namespace:LearnSmarter.Mobile.Forms.UI.Effects"
     xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:$rootnamespace$.Views"
+    xmlns:local="clr-namespace:LearnSmarter.Mobile.Forms.UI.Views"
     x:Class="LearnSmarter.Mobile.Forms.UI.Views.HomeView">
 
-    <Grid>
-        <StackLayout>
-            <Entry Text="{Binding Text, Mode=TwoWay}"></Entry>
-            <Button Text="Reset" Command="{Binding ResetTextCommand}"></Button>
-        </StackLayout>
-    </Grid>
+
+    <StackLayout Orientation="Vertical" BackgroundColor="#dedede">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="58"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="20*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout BackgroundColor="#7986cb" Margin="0, 0, 0, 5" Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+                <Label VerticalOptions="Center" HorizontalOptions="Start" Margin="15, 5, 0, 5" FontSize="17" Text="Twoje cele"></Label>
+                <Button Command="{Binding SortByPriorityCommand}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Margin="0, 8, 8, 8" TextColor="White" Text="Sortuj" BackgroundColor="#4b6584"></Button>
+            </StackLayout>
+
+
+            <ListView Grid.Row="1" Grid.Column="1" HasUnevenRows="True" ItemsSource="{Binding Collection}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="#cfcfcf" Margin="0, 0, 0, 10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"></ColumnDefinition>
+                                    <ColumnDefinition Width="8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="7*"></ColumnDefinition>
+                                    <ColumnDefinition Width="28"></ColumnDefinition>
+                                    <ColumnDefinition Width="32"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <BoxView Grid.Row="0" Grid.RowSpan="3" 
+                                         BackgroundColor="{Binding Priority, Converter={x:StaticResource PriorityToColor}}"></BoxView>
+                                
+                                <BoxView Margin="-6, 0, 0, 0" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" BackgroundColor="#686de0"></BoxView>
+                                <Button Margin="0, 0, 5, 0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#cfcfcf" Grid.Row="1" Grid.Column="3" HeightRequest="30" Image="edit.png"></Button>
+                                <Button Margin="5, 0, 10, 0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#cfcfcf" Grid.Row="1" Grid.Column="4" HeightRequest="30" Image="down_arrow_smaller.png"></Button>
+                                <BoxView Margin="-6, 0, 0, 0" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" BackgroundColor="#bdbdbd"></BoxView>
+                                <Label VerticalOptions="Center" FontSize="16" TextColor="Black" Margin="0" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" 
+                                       Text="{Binding Name}"></Label>
+                                
+                                <Label VerticalOptions="Center" HorizontalTextAlignment="Center" FontSize="15" Margin="-5, 0, 0, 0" Grid.Row="1" Grid.Column="2" 
+                                       Text="{Binding Deadline, StringFormat='{}{0:dd/MM/yyyy}'}"></Label>
+                                
+                                <Label TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" FontSize="10" Grid.Row="2" Grid.Column="1" Margin="5, 0, 0, 0" 
+                                       Text="{Binding Deadline, Converter={x:StaticResource DateToMessage}, ConverterParameter=Pozostało}"></Label>
+                                
+                                <Label TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" FontSize="10" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Text="Następna powtórka za 5 dni"></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Grid.Row="2" Grid.Column="1" Command="{Binding AddLSCommand}" Text="Dodaj Learning Subject"></Button>
+        </Grid>
+        
+    </StackLayout>
+
+    
 </views:MvxContentPage>

@@ -15,7 +15,15 @@ namespace LearnSmarter.Mobile.Core.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle);
+            try
+            {
+                base.OnCreate(bundle);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }

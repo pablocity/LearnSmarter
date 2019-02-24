@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+             xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             Title="MenuView"         
+             x:Class="LearnSmarter.Mobile.Forms.UI.Views.MenuView">
+    <views:MvxContentPage.Content>
+        
+        <StackLayout>
+
+            <StackLayout MinimumHeightRequest="25" BackgroundColor="Crimson" Orientation="Horizontal" Padding="10">
+                <Label Text="Learn Smarter than you used to!" FontFamily="Courier New" Margin="10" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            
+            
+            <sf:SfListView ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedItem}"
+                           SelectionBackgroundColor="White">
+                <sf:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image WidthRequest="26" HeightRequest="26" Margin="13, 13, 7, 13" Source="{Binding ImagePath}"></Image>
+                                <Label VerticalTextAlignment="Center" VerticalOptions="Center" FontFamily="Courier New" Text="{Binding Name}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </sf:SfListView.ItemTemplate>
+            </sf:SfListView>
+        </StackLayout>
+        
+    </views:MvxContentPage.Content>
+</views:MvxContentPage>
