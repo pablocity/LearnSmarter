@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 
 namespace LearnSmarter.Mobile.Core.Models
 {
-    public class LearningSubject
+    public class LearningSubject : INotifyPropertyChanged
     {
         public string Name { get; private set; }
         public Category Category { get; private set; }
@@ -29,6 +31,22 @@ namespace LearnSmarter.Mobile.Core.Models
             Category = category;
             Priority = priority;
             Deadline = deadline;
+            Random random = new Random(); //TODO remove
+
+            //TODO remove after tests
+            Repetitions = new List<Repetition>()
+            {
+                new Repetition($"Powtórka {random.Next(12, 57)}", "Opis1"),
+                new Repetition("Powtórka 2", "Opis2")
+            };
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(String propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void CalculateNextRepetition()
