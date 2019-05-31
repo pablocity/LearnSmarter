@@ -12,33 +12,29 @@ namespace LearnSmarter.Mobile.Core.ViewModels
         public IMvxAsyncCommand AddLSCommand => new MvxAsyncCommand(AddLS);
         public IMvxCommand SortByPriorityCommand => new MvxCommand(SortPriorities);
 
+        public ObservableCollection<Group<LearningSubject, Repetition>> Subjects { get; set; }
+
         public async Task AddLS()
         {
             LearningSubject result = await NavigationService.Navigate<LearningSubject>(typeof(LSAddViewModel));
+            Group<LearningSubject, Repetition> resultGroup = new Group<LearningSubject, Repetition>(result, result.Repetitions, this);
 
             if (result != null)
-                Collection.Add(result);
+            {
+                //Collection.Add(result);
+                Subjects.Add(resultGroup);
+            }
+                
         }
 
         public void SortPriorities()
         {
-            Collection = new ObservableCollection<LearningSubject>(Collection.OrderBy(x => x.Priority));
-        }
-
-        private ObservableCollection<LearningSubject> collection;
-        public ObservableCollection<LearningSubject> Collection
-        {
-            get => collection;
-            set => SetProperty(ref collection, value);
+            Subjects = new ObservableCollection<Group<LearningSubject, Repetition>>(Subjects.OrderBy(x => x.Key.Priority)); 
         }
 
         public HomeViewModel()
         {
-            Collection = new ObservableCollection<LearningSubject>()
-            {
-                new LearningSubject("Nazwa", System.DateTime.Now)
-            };
-
+            Subjects = new ObservableCollection<Group<LearningSubject, Repetition>>();
         }
     }
 }

@@ -43,9 +43,6 @@ namespace LearnSmarter.Mobile.Core.ViewModels
             set { Priority p = (Priority)value; SetProperty(ref priority, p); }
         }
 
-        //public string Name { get; private set; }
-        //public string Description { get; private set; }
-        //public DateTime Deadline { get; private set; }
         public Category Category { get; private set; }
 
         public ObservableCollection<string> Priorities { get; set; }
